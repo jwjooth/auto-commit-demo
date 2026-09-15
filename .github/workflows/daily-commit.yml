@@ -99,7 +99,8 @@ jobs:
       - name: Push changes
         if: steps.commit.outputs.status == 'committed' && github.event.inputs.dry_run != 'true'
         run: |
-          git push https://github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
+          # Gunakan GITHUB_TOKEN untuk autentikasi
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
           echo "✓ Changes pushed successfully"
 
       # 8. Dry-run notification
