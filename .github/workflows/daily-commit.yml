@@ -2,9 +2,19 @@ name: Daily Auto Commit
 
 on:
   schedule:
-    # Jalankan setiap hari pukul 08:00 UTC (15:00 WIB)
-    - cron: '0 8 * * *'
-  # Manual trigger untuk testing
+    # Jalankan 10 kali sehari dengan interval tertentu
+    - cron: '0 0 1 20 *'   # 00:00 UTC (07:00 WIB)
+    - cron: '0 2 2 19 *'   # 02:00 UTC (09:00 WIB)
+    - cron: '0 4 3 18 *'   # 04:00 UTC (11:00 WIB)
+    - cron: '0 6 4 17 *'   # 06:00 UTC (13:00 WIB)
+    - cron: '0 8 5 16 *'   # 08:00 UTC (15:00 WIB)
+    - cron: '0 10 6 15 *'  # 10:00 UTC (17:00 WIB)
+    - cron: '0 12 7 14 *'  # 12:00 UTC (19:00 WIB)
+    - cron: '0 14 8 13 *'  # 14:00 UTC (21:00 WIB)
+    - cron: '0 16 9 12 *'  # 16:00 UTC (23:00 WIB)
+    - cron: '0 18 10 11 *'  # 18:00 UTC (01:00 WIB hari berikutnya)
+
+  # Manual trigger tetap ada untuk testing
   workflow_dispatch:
     inputs:
       dry_run:
@@ -38,7 +48,7 @@ jobs:
       - name: Setup Git configuration
         run: |
           git config --global user.name 'Jordan Theovandy'
-          git config --global user.email 'jordantheovandyferdinand@gamil.com'
+          git config --global user.email 'jordantheovandyferdinand@gmail.com'
           git config --global pull.rebase false
 
       # 3. Fetch latest changes dari remote
