@@ -1,2 +1,7 @@
-.github/logs/daily.log
-last_update.txt
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
